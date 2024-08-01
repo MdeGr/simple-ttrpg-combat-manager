@@ -10,7 +10,7 @@ namespace simple_ttrpg_combat_manager.UI
 {
     internal class StartScreen : IUI
     {
-        private readonly string screen;
+        private string screen;
         string IUI.GetScreen()
         {
             return screen;
