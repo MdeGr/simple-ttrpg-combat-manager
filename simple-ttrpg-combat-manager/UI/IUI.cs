@@ -9,6 +9,6 @@ namespace simple_ttrpg_combat_manager.UI
     internal interface IUI
     {
         internal string GetScreen();
-        internal void input(string? input);
+        internal IUI? input(string? input);
     }
 }

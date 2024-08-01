@@ -32,7 +32,18 @@ namespace simple_ttrpg_combat_manager
                 {
                     print(null);
                     string? input = Console.ReadLine();
-                    curentUI.input(input);
+                    IUI? newUI = curentUI.input(input);
+
+                    if (newUI != null)
+                    {
+                        curentUI = newUI;
+                    }
+                    try
+                    {
+                        Exit exit = (Exit)newUI;
+                        isRunning = !exit.GetExit();
+                    }
+                    catch { }
                 }
                 catch (Exception e)
                 {
@@ -46,12 +57,17 @@ namespace simple_ttrpg_combat_manager
             if (e == null)
             {
                 string curentState = curentUI.GetScreen();
-                if (curentState != null) { throw new NullReferenceException("Curent UI element is empty"); }
-
+                if (curentState == null || curentState == "") 
+                {
+                    throw new NullReferenceException("Curent UI element is empty");
+                }
+                
+                Console.Clear();
                 Console.WriteLine(curentState);
             }
             else
             {
+                Console.Clear();
                 Console.WriteLine(e.Message);
             }
         }
