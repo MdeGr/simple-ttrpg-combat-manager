@@ -7,7 +7,7 @@ using ttrpg_combat_engine.coreEngine.stat;
 
 namespace ttrpg_combat_engine.coreEngine.interfaces
 {
-    internal interface IStatFactory
+    public interface IStatFactory
     {
         public Stat CreateStat(string name, int normalValue);
     }

@@ -11,13 +11,17 @@ namespace ttrpg_combat_engine.coreEngine.encounter
         IAttackFactory attackFactory;
         IStatFactory statFactory;
 
-        EncounterFactory(ICreatureFactory creatureFactory, IAttackFactory attackFactory, IStatFactory statFactory)
+        public ICreatureFactory GetCreatureFactory() { return creatureFactory; }
+        public IAttackFactory GetAttackFactory() {  return attackFactory; }
+        public IStatFactory GetStatFactory() {  return statFactory; }
+
+        public EncounterFactory(ICreatureFactory creatureFactory, IAttackFactory attackFactory, IStatFactory statFactory)
         {
             this.creatureFactory = creatureFactory;
             this.attackFactory = attackFactory;
             this.statFactory = statFactory;
         }
-        EncounterFactory()
+        public EncounterFactory()
         {
             creatureFactory = new CreatureFactory();
             attackFactory = new AttackFactory();
