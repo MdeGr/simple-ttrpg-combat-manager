@@ -1,4 +1,5 @@
-﻿using System;
+﻿using simple_ttrpg_combat_manager.UI.creatureCreation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,16 +10,103 @@ namespace simple_ttrpg_combat_manager.UI
 {
     internal class CreateCreature : IUI
     {
-        private string Screen = "";
+        private string screen;
         private List<ICreature> creatures;
+        private string name;
+        private List<IStat> stats = new List<IStat>();
+        private List<IAttack> attacks = new List<IAttack>();
+        private IUI nestedUI;
+
+        internal bool SetName(string name)
+        {
+            try
+            {
+                this.name = name;
+                return true;
+            }
+            catch { return false; }
+        }
         string IUI.GetScreen()
         {
-            throw new NotImplementedException();
+            if (nestedUI != null)
+            {
+                return nestedUI.GetScreen();
+            }
+            else
+            {
+                screen = "Create creature\n\n" +
+                    $"name: {name}\n"+
+                    " Stats:\n";
+                foreach (IStat stat in stats)
+                {
+                    screen += stat.GetName()+"\n";
+                }
+
+                screen += "\n Attacks:\n";
+                foreach (IAttack attack in attacks)
+                {
+                    screen += attack.GetName() + "\n";
+                }
+
+                screen += "\n1)Change name\n" +
+                    "2)Add stat\n"+
+                    "3)Add attack\n" +
+                    "4)Confirm\n"+
+                    "5)Back";
+
+                return screen;
+            }
         }
 
         IUI? IUI.input(string? input)
         {
-            throw new NotImplementedException();
+            if (input == null || input == "") { return null; }
+            if (nestedUI != null)
+            {
+                IUI? returnUI = nestedUI.input(input);
+                nestedUI = returnUI;
+                return this;
+            }
+
+            try
+            {
+                int inputNum = int.Parse(input);
+                switch (inputNum)
+                {
+                    case 1:
+                        {
+                            nestedUI = new ChangeName(SetName);
+                            return this;
+                        }
+                    case 2:
+                        {
+                            nestedUI = new CreateStat();
+                            return this;
+                        }
+                    case 3:
+                        {
+                            nestedUI = new CreateAttack();
+                            return this;
+                        }
+                    case 4:
+                        {
+                            ICreature creature = Factorys.internal_creature_factory.CreateCreature(name,stats,attacks);
+                            creatures.Add(creature);
+
+                            return null;
+                        }
+                    default:
+                        {
+                            screen += "\nError: input must be a number from the list";
+                            return this;
+                        }
+                }
+            }
+            catch
+            {
+                screen += "\nError: input must be a number";
+                return null;
+            }
         }
 
         internal CreateCreature(List<ICreature> creatures)

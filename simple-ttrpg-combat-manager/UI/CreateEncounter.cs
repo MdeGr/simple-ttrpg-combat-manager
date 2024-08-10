@@ -10,22 +10,40 @@ namespace simple_ttrpg_combat_manager.UI
 {
     internal class CreateEncounter : IUI
     {
-        private List<ICreature> creatures;
-        private IEncounterFactory factory;
-        private string screen;
-        private IUI nestedUI;
+        private List<ICreature> creatures = new List<ICreature>();
+        private IUI? nestedUI = null;
+        private string? screen;
         string IUI.GetScreen()
         {
             if (nestedUI != null)
             {
                 return nestedUI.GetScreen();
             }
-            else { return screen; }
+            else
+            {
+                screen = "Create encounter\n\n" + " Creatures:\n";
+
+                foreach (ICreature creature in creatures)
+                {
+                    screen += creature.GetName()+"\n";
+                }
+
+                screen += "\n1)Add creature\n" +
+                    "2)Confirm\n" +
+                    "3)Back to startScreen";
+
+                return screen;
+            }
         }
         IUI? IUI.input(string? input)
         {
-            if (input == null || input == "") { return null; }
-            if (nestedUI != null) { return nestedUI.input(input); }
+            if (input == null || input == "") { return this; }
+            if (nestedUI != null)
+            {
+                IUI? returnUI = nestedUI.input(input);
+                nestedUI = returnUI;
+                return this;
+            }
 
             try
             {
@@ -35,14 +53,14 @@ namespace simple_ttrpg_combat_manager.UI
                     case 1:
                         {
                             nestedUI = new CreateCreature(creatures);
-                            return null;
+                            return this;
                         }
-                    case 2: return new ActiveEncounter(factory.CreateEncounter(creatures));
+                    case 2: return new ActiveEncounter(Factorys.internal_encounter_factory.CreateEncounter(creatures));
                     case 3: return new StartScreen();
                     default:
                         {
                             screen += "\nError: input must be a number from the list";
-                            return null;
+                            return this;
                         }
                 }
             }
@@ -53,20 +71,6 @@ namespace simple_ttrpg_combat_manager.UI
             }
         }
 
-        internal CreateEncounter(IEncounterFactory factory)
-        {
-            this.factory = factory;
-
-            screen = "Create encounter\n\n" + " Creatures:\n";
-
-            foreach (ICreature creature in creatures)
-            {
-                screen += creature.GetName();
-            }
-
-            screen += "\n1)Add creature\n" +
-                "2)Confirm\n" +
-                "3)Back to startScreen";
-        }
+        internal CreateEncounter() { }
     }
 }
