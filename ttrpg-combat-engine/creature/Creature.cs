@@ -5,19 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using ttrpg_combat_engine.stat;
 using ttrpg_combat_engine.attack;
-using System.ComponentModel.DataAnnotations;
 
 namespace ttrpg_combat_engine.mobile
 {
     public class Creature
     {
+        private string name;
         private List<Stat> stats;
         private List<Attack> attacks;
 
         public List<Stat> GetStats() {  return stats; }
         public List<Attack> GetAttacks() { return attacks; }
 
-        internal Creature(List<Stat> stats, List<Attack> attacks)
+        internal Creature(string name, List<Stat> stats, List<Attack> attacks)
         {
             this.stats = stats;
             this.attacks = attacks;
