@@ -19,8 +19,15 @@ namespace ttrpg_combat_engine.mobile
 
         internal Creature(string name, List<Stat> stats, List<Attack> attacks)
         {
+            this.name = name;
             this.stats = stats;
             this.attacks = attacks;
+        }
+        internal Creature(string name)
+        {
+            this.name = name;
+            this.stats = new List<Stat>();
+            this.attacks = new List<Attack>();
         }
         internal bool Addstat(Stat stat)
         {
