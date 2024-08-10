@@ -11,6 +11,8 @@ namespace ttrpg_combat_engine.coreEngine.encounter
     {
         private List<ICreature> creatures;
 
+        public List<ICreature> GetCreatures() { return creatures; }
+
         public Encounter(List<ICreature> creatures)
         {
             this.creatures = creatures;
@@ -19,7 +21,14 @@ namespace ttrpg_combat_engine.coreEngine.encounter
         {
             creatures = new List<ICreature>();
         }
-
-        public List<ICreature> GetCreatures() { return creatures; }
+        public bool AddCreature (ICreature creature)
+        {
+            try
+            {
+                creatures.Add(creature);
+                return true;
+            }
+            catch { return false; }
+        }
     }
 }
