@@ -1,7 +1,7 @@
-﻿using ttrpg_combat_engine.attack;
+﻿using ttrpg_combat_engine.coreEngine.attack;
+using ttrpg_combat_engine.coreEngine.creature;
 using ttrpg_combat_engine.coreEngine.interfaces;
-using ttrpg_combat_engine.mobile;
-using ttrpg_combat_engine.stat;
+using ttrpg_combat_engine.coreEngine.stat;
 
 namespace ttrpg_combat_engine.coreEngine.encounter
 {
