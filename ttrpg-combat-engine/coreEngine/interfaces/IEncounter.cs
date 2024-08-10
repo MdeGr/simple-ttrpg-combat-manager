@@ -9,6 +9,6 @@ namespace ttrpg_combat_engine.coreEngine.interfaces
 {
     internal interface IEncounter
     {
-        public List<ICreature> GetCreatures() { return creatures; };
+        public List<ICreature> GetCreatures();
     }
 }
