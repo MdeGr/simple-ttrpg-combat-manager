@@ -7,7 +7,7 @@ using ttrpg_combat_engine.utility.interfaces;
 
 namespace ttrpg_combat_engine.utility.dice.flatDice
 {
-    internal class Die : IDie
+    public class Die : IDie
     {
         private int max;
         private int min;

@@ -4,25 +4,27 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ttrpg_combat_engine.coreEngine.interfaces;
 
-namespace ttrpg_combat_engine.stat
+namespace ttrpg_combat_engine.coreEngine.stat
 {
-    public class Stat
+    public class Stat : IStat
     {
         private string name;
         private int normalValue;
         private int curentValue;
 
-        public string GetName() {  return name; }
+        public string GetName() { return name; }
         public int GetNormalValue() { return normalValue; }
         public int GetCurentValue() { return curentValue; }
 
-        internal Stat(string name, int normalValue)
+        public Stat(string name, int normalValue)
         {
             this.name = name;
             this.normalValue = normalValue;
+            curentValue = normalValue;
         }
-        internal bool EditCurentValue(int curentValue)
+        public bool EditCurentValue(int curentValue)
         {
             try
             {

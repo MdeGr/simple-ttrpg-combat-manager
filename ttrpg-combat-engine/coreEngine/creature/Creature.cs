@@ -3,33 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ttrpg_combat_engine.stat;
-using ttrpg_combat_engine.attack;
+using ttrpg_combat_engine.coreEngine.attack;
+using ttrpg_combat_engine.coreEngine.interfaces;
+using ttrpg_combat_engine.coreEngine.stat;
 
-namespace ttrpg_combat_engine.mobile
+namespace ttrpg_combat_engine.coreEngine.creature
 {
-    public class Creature
+    public class Creature : ICreature
     {
         private string name;
-        private List<Stat> stats;
-        private List<Attack> attacks;
+        private List<IStat> stats;
+        private List<IAttack> attacks;
 
-        public List<Stat> GetStats() {  return stats; }
-        public List<Attack> GetAttacks() { return attacks; }
+        public List<IStat> GetStats() { return stats; }
+        public List<IAttack> GetAttacks() { return attacks; }
 
-        internal Creature(string name, List<Stat> stats, List<Attack> attacks)
+        public Creature(string name, List<IStat> stats, List<IAttack> attacks)
         {
             this.name = name;
             this.stats = stats;
             this.attacks = attacks;
         }
-        internal Creature(string name)
+        public Creature(string name)
         {
             this.name = name;
-            this.stats = new List<Stat>();
-            this.attacks = new List<Attack>();
+            stats = new List<IStat>();
+            attacks = new List<IAttack>();
         }
-        internal bool Addstat(Stat stat)
+        public bool Addstat(IStat stat)
         {
             if (stat == null) { return false; }
             try
@@ -39,7 +40,7 @@ namespace ttrpg_combat_engine.mobile
             }
             catch { return false; }
         }
-        internal bool AddAttack(Attack attack)
+        public bool AddAttack(IAttack attack)
         {
             if (attack == null) { return false; }
             try
