@@ -56,6 +56,7 @@ namespace ttrpg_combat_engine.mobile
                         return true;
                     }
                 }
+                return false;
             }
             catch { return false; }
         }
