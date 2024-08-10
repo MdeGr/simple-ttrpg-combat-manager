@@ -5,7 +5,7 @@ using ttrpg_combat_engine.coreEngine.stat;
 
 namespace ttrpg_combat_engine.coreEngine.encounter
 {
-    public class EncounterFactory
+    public class EncounterFactory : IEncounterFactory
     {
         ICreatureFactory creatureFactory;
         IAttackFactory attackFactory;
@@ -23,5 +23,6 @@ namespace ttrpg_combat_engine.coreEngine.encounter
             attackFactory = new AttackFactory();
             statFactory = new StatFactory();
         }
+
     }
 }
