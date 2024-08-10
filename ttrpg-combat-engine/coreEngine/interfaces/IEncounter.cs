@@ -7,8 +7,9 @@ using ttrpg_combat_engine.coreEngine.creature;
 
 namespace ttrpg_combat_engine.coreEngine.interfaces
 {
-    internal interface IEncounter
+    public interface IEncounter
     {
         public List<ICreature> GetCreatures();
+        public bool AddCreature(ICreature creature);
     }
 }

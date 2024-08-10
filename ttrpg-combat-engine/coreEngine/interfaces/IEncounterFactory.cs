@@ -8,5 +8,7 @@ namespace ttrpg_combat_engine.coreEngine.interfaces
 {
     internal interface IEncounterFactory
     {
+        public IEncounter CreateEncounter(List<ICreature> creatures);
+        public IEncounter CreateEncounter();
     }
 }

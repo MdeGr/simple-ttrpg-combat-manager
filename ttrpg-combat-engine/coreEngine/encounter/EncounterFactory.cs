@@ -23,11 +23,11 @@ namespace ttrpg_combat_engine.coreEngine.encounter
             attackFactory = new AttackFactory();
             statFactory = new StatFactory();
         }
-        public Encounter CreateEncounter(List<ICreature> creatures)
+        public IEncounter CreateEncounter(List<ICreature> creatures)
         {
             return new Encounter(creatures);
         }
-        public Encounter CreateEncounter()
+        public IEncounter CreateEncounter()
         {
             return new Encounter();
         }
