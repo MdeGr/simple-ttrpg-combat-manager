@@ -15,6 +15,7 @@ namespace ttrpg_combat_engine.coreEngine.creature
         private List<IStat> stats;
         private List<IAttack> attacks;
 
+        public string GetName() {  return name; }
         public List<IStat> GetStats() { return stats; }
         public List<IAttack> GetAttacks() { return attacks; }
 
