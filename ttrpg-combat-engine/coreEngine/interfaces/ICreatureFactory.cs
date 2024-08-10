@@ -11,7 +11,7 @@ namespace ttrpg_combat_engine.coreEngine.interfaces
 {
     internal interface ICreatureFactory
     {
-        public Creature CreateCreature(string name, List<Stat> stats, List<Attack> attacks);
+        public Creature CreateCreature(string name, List<IStat> stats, List<IAttack> attacks);
         public Creature CreateCreature(string name);
     }
 }
