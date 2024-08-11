@@ -11,5 +11,6 @@ namespace ttrpg_combat_engine.coreEngine.interfaces
         public string GetName();
         public int GetToHit();
         public int GetDamage();
+        public string GetTargetStat();
     }
 }

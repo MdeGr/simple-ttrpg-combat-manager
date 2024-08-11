@@ -11,14 +11,14 @@ namespace ttrpg_combat_engine.coreEngine.attack
     public class AttackFactory : IAttackFactory
     {
         public AttackFactory() { }
-        public Attack CreateAttack(string name, IDie hitDie, int hitMod, IDie damageDie, int nDamageDie, int damageMod)
+        public Attack CreateAttack(string name, string targetStat, IDie hitDie, int hitMod, IDie damageDie, int nDamageDie, int damageMod)
         {
-            return new Attack(name, hitDie, hitMod, damageDie, nDamageDie, damageMod);
+            return new Attack(name, targetStat, hitDie, hitMod, damageDie, nDamageDie, damageMod);
         }
-        public Attack CreateAttack(string name, IDie damageDie, int nDamageDie, int damageMod)
+        public Attack CreateAttack(string name, string targetStat, IDie damageDie, int nDamageDie, int damageMod)
         {
             if (nDamageDie <= 0) { throw new ArgumentException("Number of damage dice to low"); }
-            return new Attack(name, damageDie, nDamageDie, damageMod);
+            return new Attack(name, targetStat, damageDie, nDamageDie, damageMod);
         }
     }
 }

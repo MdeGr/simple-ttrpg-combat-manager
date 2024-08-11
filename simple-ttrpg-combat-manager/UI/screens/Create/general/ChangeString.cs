@@ -8,11 +8,11 @@ using simple_ttrpg_combat_manager.UI.Interfaces;
 
 namespace simple_ttrpg_combat_manager.UI.screens.Create.general
 {
-    internal class ChangeName : IUI
+    internal class ChangeString : IUI
     {
         private Func<string, bool> changeFunc;
-        private string screen = "Change name\n\n" +
-            "type name or press enter to return to creation...\n";
+        private string screen = "Change text\n\n" +
+            "type text or press enter to return to creation...\n";
 
         string IUI.GetScreen()
         {
@@ -30,7 +30,7 @@ namespace simple_ttrpg_combat_manager.UI.screens.Create.general
             }
         }
 
-        internal ChangeName(Func<string, bool> changeFunc)
+        internal ChangeString(Func<string, bool> changeFunc)
         {
             this.changeFunc = changeFunc;
         }

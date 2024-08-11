@@ -12,6 +12,7 @@ namespace ttrpg_combat_engine.coreEngine.interfaces
     {
         public string GetName();
         public List<IStat> GetStats();
+        public IStat? GetStat(string name);
         public List<IAttack> GetAttacks();
         public bool Addstat(IStat stat);
         public bool AddAttack(IAttack attack);

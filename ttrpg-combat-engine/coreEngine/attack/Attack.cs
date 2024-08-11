@@ -13,24 +13,27 @@ namespace ttrpg_combat_engine.coreEngine.attack
     public class Attack : IAttack
     {
         private string name;
+        private string targetStat;
         private IDie? hitDie;
         private int hitMod;
         private IDie damageDie;
         private int nDamageDice;
         private int damageMod;
 
-        public Attack(string name, IDie hitDie, int hitMod, IDie damageDie, int nDamageDice, int damageMod)
+        public Attack(string name, string targetStat, IDie hitDie, int hitMod, IDie damageDie, int nDamageDice, int damageMod)
         {
             this.name = name;
+            this.targetStat = targetStat;
             this.hitDie = hitDie;
             this.hitMod = hitMod;
             this.damageDie = damageDie;
             this.nDamageDice = nDamageDice;
             this.damageMod = damageMod;
         }
-        public Attack(string name, IDie damageDie, int nDamageDice, int damageMod)
+        public Attack(string name, string targetStat, IDie damageDie, int nDamageDice, int damageMod)
         {
             this.name = name;
+            this.targetStat = targetStat;
             hitMod = 0;
             this.damageDie = damageDie;
             this.nDamageDice = nDamageDice;
@@ -55,6 +58,10 @@ namespace ttrpg_combat_engine.coreEngine.attack
             }
             damage += damageMod;
             return damage;
+        }
+        public string GetTargetStat()
+        {
+            return targetStat;
         }
     }
 }

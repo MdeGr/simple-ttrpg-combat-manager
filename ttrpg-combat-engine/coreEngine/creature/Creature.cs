@@ -15,9 +15,20 @@ namespace ttrpg_combat_engine.coreEngine.creature
         private List<IStat> stats;
         private List<IAttack> attacks;
 
-        public string GetName() {  return name; }
+        public string GetName() { return name; }
         public List<IStat> GetStats() { return stats; }
         public List<IAttack> GetAttacks() { return attacks; }
+        public IStat? GetStat(string name)
+        {
+            foreach (Stat stat in stats)
+            {
+                if (stat.GetName() == name)
+                {
+                    return stat;
+                }
+            }
+            return null;
+        }
 
         public Creature(string name, List<IStat> stats, List<IAttack> attacks)
         {

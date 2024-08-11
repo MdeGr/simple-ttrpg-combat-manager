@@ -17,6 +17,7 @@ namespace simple_ttrpg_combat_manager.UI.screens.Create.creatureCreation
     {
         private List<IAttack> attacks;
         private string name;
+        private string targetStat;
         private IDie? hitDie;
         private IDie? damageDie;
         private int hitMod;
@@ -26,6 +27,24 @@ namespace simple_ttrpg_combat_manager.UI.screens.Create.creatureCreation
         private IUI? nestedUI;
         private string screen;
 
+        internal bool SetName(string name)
+        {
+            try
+            {
+                this.name = name;
+                return true;
+            }
+            catch { return false; }
+        }
+        internal bool SetTargetStat(string stat)
+        {
+            try
+            {
+                targetStat = stat;
+                return true;
+            }
+            catch { return false; }
+        }
         internal bool SetHitDie(IDie die, int number)
         {
             try
@@ -41,15 +60,6 @@ namespace simple_ttrpg_combat_manager.UI.screens.Create.creatureCreation
             {
                 damageDie = die;
                 nDamageDice = number;
-                return true;
-            }
-            catch { return false; }
-        }
-        internal bool SetName(string name)
-        {
-            try
-            {
-                this.name = name;
                 return true;
             }
             catch { return false; }
@@ -83,6 +93,7 @@ namespace simple_ttrpg_combat_manager.UI.screens.Create.creatureCreation
             {
                 screen = "Create Attack\n\n";
                 try { screen += $"name: {name}\n"; } catch { }
+                try { screen += $"target stat: {targetStat}\n"; } catch { }
                 try { screen += $"Hit die: {hitDie.GetName()}\n"; } catch { }
                 try { screen += $"Damage die: {damageDie.GetName()}\n"; } catch { }
                 try { screen += $"hit modifier: {hitMod}\n"; } catch { }
@@ -90,12 +101,13 @@ namespace simple_ttrpg_combat_manager.UI.screens.Create.creatureCreation
                 try { screen += $"number of damage dice: {nDamageDice}\n"; } catch { }
 
                 screen += "\n1)Change name\n" +
-                    "2)Set hit die\n" +
-                    "3)Set damage die\n" +
-                    "4)set hit modifier\n" +
-                    "5)Set damage modifier\n" +
-                    "6)Confirm\n" +
-                    "7)Back";
+                    "2)Change name\n" +
+                    "3)Set hit die\n" +
+                    "4)Set damage die\n" +
+                    "5)set hit modifier\n" +
+                    "6)Set damage modifier\n" +
+                    "7)Confirm\n" +
+                    "8)Back";
 
                 return screen;
             }
@@ -117,39 +129,44 @@ namespace simple_ttrpg_combat_manager.UI.screens.Create.creatureCreation
                 {
                     case 1:
                         {
-                            nestedUI = new ChangeName(SetName);
+                            nestedUI = new ChangeString(SetName);
                             return this;
                         }
                     case 2:
                         {
-                            nestedUI = new CreateDie(SetHitDie);
+                            nestedUI = new ChangeString(SetTargetStat);
                             return this;
                         }
                     case 3:
                         {
-                            nestedUI = new CreateDie(SetDamageDice);
+                            nestedUI = new CreateDie(SetHitDie);
                             return this;
                         }
                     case 4:
                         {
-                            nestedUI = new ChangeNumber(SetHitMod);
+                            nestedUI = new CreateDie(SetDamageDice);
                             return this;
                         }
                     case 5:
                         {
-                            nestedUI = new ChangeNumber(SetDamageMod);
+                            nestedUI = new ChangeNumber(SetHitMod);
                             return this;
                         }
                     case 6:
                         {
+                            nestedUI = new ChangeNumber(SetDamageMod);
+                            return this;
+                        }
+                    case 7:
+                        {
                             IAttack attack = null;
                             if (hitDie != null && hitDie != null)
                             {
-                                attack = Factorys.internal_attack_factory.CreateAttack(name, hitDie, hitMod, damageDie, nDamageDice, damageMod);
+                                attack = Factorys.internal_attack_factory.CreateAttack(name, targetStat, hitDie, hitMod, damageDie, nDamageDice, damageMod);
                             }
                             else if (hitDie != null)
                             {
-                                attack = Factorys.internal_attack_factory.CreateAttack(name, damageDie, nDamageDice, damageMod);
+                                attack = Factorys.internal_attack_factory.CreateAttack(name, targetStat, damageDie, nDamageDice, damageMod);
                             }
                             else
                             {
@@ -159,7 +176,7 @@ namespace simple_ttrpg_combat_manager.UI.screens.Create.creatureCreation
 
                             return null;
                         }
-                    case 7: return null;
+                    case 8: return null;
                     default:
                         {
                             return this;

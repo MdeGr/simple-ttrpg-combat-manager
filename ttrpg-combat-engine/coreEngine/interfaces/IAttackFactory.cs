@@ -10,7 +10,7 @@ namespace ttrpg_combat_engine.coreEngine.interfaces
 {
     public interface IAttackFactory
     {
-        public Attack CreateAttack(string name, IDie hitDie, int hitMod, IDie damageDie, int nDamageDie, int damageMod);
-        public Attack CreateAttack(string name, IDie damageDie, int nDamageDie, int damageMod);
+        public Attack CreateAttack(string name, string targetStat, IDie hitDie, int hitMod, IDie damageDie, int nDamageDie, int damageMod);
+        public Attack CreateAttack(string name, string targetStat, IDie damageDie, int nDamageDie, int damageMod);
     }
 }

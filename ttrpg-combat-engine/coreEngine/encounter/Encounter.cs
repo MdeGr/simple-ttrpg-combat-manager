@@ -21,7 +21,7 @@ namespace ttrpg_combat_engine.coreEngine.encounter
         {
             creatures = new List<ICreature>();
         }
-        public bool AddCreature (ICreature creature)
+        public bool AddCreature(ICreature creature)
         {
             try
             {
@@ -29,6 +29,30 @@ namespace ttrpg_combat_engine.coreEngine.encounter
                 return true;
             }
             catch { return false; }
+        }
+        public int MangeToHit(IAttack attack)
+        {
+            return attack.GetToHit();
+        }
+        public Exception? ManageAttackDamage(ICreature target, IAttack attack)
+        {
+            try
+            {
+                IStat? stat = target.GetStat(attack.GetTargetStat());
+                int roll = attack.GetDamage();
+
+                if (stat == null) 
+                { 
+                    throw new ArgumentException("target does not have this stat."); 
+                }
+                else
+                {
+                    int endValue = stat.GetCurentValue() - roll;
+                    target.EditStat(stat.GetName(), endValue);
+                    return null;
+                }
+            }
+            catch (Exception e) { return e; }
         }
     }
 }
