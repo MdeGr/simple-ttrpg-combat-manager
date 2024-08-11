@@ -6,15 +6,14 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using simple_ttrpg_combat_manager.UI;
 using simple_ttrpg_combat_manager.UI.Interfaces;
 using simple_ttrpg_combat_manager.UI.screens;
 
-namespace simple_ttrpg_combat_manager
+namespace simple_ttrpg_combat_manager.UI
 {
     internal class UIManager
     {
-        private IUI curentUI {  get; set; }
+        private IUI curentUI { get; set; }
 
         internal UIManager()
         {
@@ -59,11 +58,11 @@ namespace simple_ttrpg_combat_manager
             if (e == null)
             {
                 string curentState = curentUI.GetScreen();
-                if (curentState == null || curentState == "") 
+                if (curentState == null || curentState == "")
                 {
                     throw new NullReferenceException("Curent UI element is empty");
                 }
-                
+
                 Console.Clear();
                 Console.WriteLine(curentState);
             }

@@ -1,4 +1,4 @@
-﻿using simple_ttrpg_combat_manager;
+﻿using simple_ttrpg_combat_manager.UI;
 
 UIManager uiManager = new UIManager();
 uiManager.run();
