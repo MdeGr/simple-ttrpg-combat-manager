@@ -105,7 +105,7 @@ namespace simple_ttrpg_combat_manager.UI.screens.Create.general
                         {
                             try
                             {
-                                IDie die = Factorys.internal_Die_factory.CreateDie(max, min);
+                                IDie die = Factorys.internal_die_factory.CreateDie(max, min);
                                 setDie(die, number);
                                 return null;
                             }

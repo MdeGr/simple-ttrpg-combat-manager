@@ -87,7 +87,7 @@ namespace simple_ttrpg_combat_manager.UI.screens.Create.creatureCreation
                         }
                     case 3:
                         {
-                            IStat stat = Factorys.internal_Stat_factory.CreateStat(name, normalValue);
+                            IStat stat = Factorys.internal_stat_factory.CreateStat(name, normalValue);
                             stats.Add(stat);
                             return null;
                         }

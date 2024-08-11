@@ -18,7 +18,7 @@ namespace simple_ttrpg_combat_manager
         internal static readonly IAttackFactory internal_attack_factory = new AttackFactory();
         internal static readonly ICreatureFactory internal_creature_factory = new CreatureFactory();
         internal static readonly IEncounterFactory internal_encounter_factory = new EncounterFactory();
-        internal static readonly IStatFactory internal_Stat_factory = new StatFactory();
-        internal static readonly IDieFactory internal_Die_factory = new DieFactory(new Random());
+        internal static readonly IStatFactory internal_stat_factory = new StatFactory();
+        internal static readonly IDieFactory internal_die_factory = new DieFactory(new Random());
     }
 }
