@@ -9,6 +9,7 @@ using ttrpg_combat_engine.coreEngine.attack;
 using ttrpg_combat_engine.coreEngine.creature;
 using ttrpg_combat_engine.coreEngine.interfaces;
 using ttrpg_combat_engine.utility.interfaces;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace simple_ttrpg_combat_manager.UI.Create.creatureCreation
 {
@@ -80,16 +81,21 @@ namespace simple_ttrpg_combat_manager.UI.Create.creatureCreation
             }
             else
             {
-                screen = "Create Attack\n\n" +
-                    $"name: {name}\n";
+                screen = "Create Attack\n\n";
+                try { screen += $"name: {name}\n"; } catch { }
+                try { screen += $"Hit die: {hitDie.GetName()}\n"; } catch { }
+                try { screen += $"Damage die: {damageDie.GetName()}\n"; } catch { }
+                try { screen += $"hit modifier: {hitMod}\n"; } catch { }
+                try { screen += $"damage modifier: {damageMod}\n"; } catch { }
+                try { screen += $"number of damage dice: {nDamageDice}\n"; } catch { }
 
                 screen += "\n1)Change name\n" +
                     "2)Set hit die\n" +
                     "3)Set damage die\n" +
                     "4)set hit modifier\n" +
                     "5)Set damage modifier\n" +
-                    "4)Confirm\n" +
-                    "5)Back";
+                    "6)Confirm\n" +
+                    "7)Back";
 
                 return screen;
             }
@@ -153,6 +159,7 @@ namespace simple_ttrpg_combat_manager.UI.Create.creatureCreation
 
                             return null;
                         }
+                    case 7: return null;
                     default:
                         {
                             return this;

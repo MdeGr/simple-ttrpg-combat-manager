@@ -12,7 +12,7 @@ namespace simple_ttrpg_combat_manager.UI.Create.general
     {
         private Func<string, bool> changeFunc;
         private string screen = "Change name\n\n" +
-            "type name or press enter to return to creature creation...\n";
+            "type name or press enter to return to creation...\n";
 
         string IUI.GetScreen()
         {

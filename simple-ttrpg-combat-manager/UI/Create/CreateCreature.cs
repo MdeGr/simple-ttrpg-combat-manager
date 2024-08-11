@@ -1,6 +1,5 @@
 ﻿using simple_ttrpg_combat_manager.UI.Create.creatureCreation;
 using simple_ttrpg_combat_manager.UI.Create.general;
-using simple_ttrpg_combat_manager.UI.creatureCreation;
 using simple_ttrpg_combat_manager.UI.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -98,6 +97,7 @@ namespace simple_ttrpg_combat_manager.UI.Create
 
                             return null;
                         }
+                    case 5: return null;
                     default:
                         {
                             screen += "\nError: input must be a number from the list";

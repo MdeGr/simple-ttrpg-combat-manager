@@ -116,6 +116,7 @@ namespace simple_ttrpg_combat_manager.UI.Create.general
                                 return this;
                             }
                         }
+                    case 5: return null;
                     default:
                         {
                             screen += "\nError: input must be a number from the list";
