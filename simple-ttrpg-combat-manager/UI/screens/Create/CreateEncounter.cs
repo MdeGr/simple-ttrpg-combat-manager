@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using simple_ttrpg_combat_manager.UI.Interfaces;
+using simple_ttrpg_combat_manager.UI.screens.activeCombat;
 using ttrpg_combat_engine.coreEngine.creature;
 using ttrpg_combat_engine.coreEngine.interfaces;
 
-namespace simple_ttrpg_combat_manager.UI.Create
+namespace simple_ttrpg_combat_manager.UI.screens.Create
 {
     internal class CreateEncounter : IUI
     {

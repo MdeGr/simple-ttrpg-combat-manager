@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using simple_ttrpg_combat_manager.UI.Create.general;
 using simple_ttrpg_combat_manager.UI.Interfaces;
+using simple_ttrpg_combat_manager.UI.screens.Create.general;
 using ttrpg_combat_engine.coreEngine.attack;
 using ttrpg_combat_engine.coreEngine.interfaces;
 using ttrpg_combat_engine.utility.interfaces;
 
-namespace simple_ttrpg_combat_manager.UI.Create.creatureCreation
+namespace simple_ttrpg_combat_manager.UI.screens.Create.creatureCreation
 {
     internal class CreateStat : IUI
     {
@@ -87,7 +87,7 @@ namespace simple_ttrpg_combat_manager.UI.Create.creatureCreation
                         }
                     case 3:
                         {
-                            IStat stat = Factorys.internal_Stat_factory.CreateStat(name,normalValue);
+                            IStat stat = Factorys.internal_Stat_factory.CreateStat(name, normalValue);
                             stats.Add(stat);
                             return null;
                         }

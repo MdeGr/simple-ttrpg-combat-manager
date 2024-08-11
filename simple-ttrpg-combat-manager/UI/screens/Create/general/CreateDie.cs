@@ -1,5 +1,4 @@
-﻿using simple_ttrpg_combat_manager.UI.Create.creatureCreation;
-using simple_ttrpg_combat_manager.UI.Interfaces;
+﻿using simple_ttrpg_combat_manager.UI.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +8,7 @@ using System.Xml.Linq;
 using ttrpg_combat_engine.coreEngine.interfaces;
 using ttrpg_combat_engine.utility.interfaces;
 
-namespace simple_ttrpg_combat_manager.UI.Create.general
+namespace simple_ttrpg_combat_manager.UI.screens.Create.general
 {
     internal class CreateDie : IUI
     {
@@ -131,7 +130,7 @@ namespace simple_ttrpg_combat_manager.UI.Create.general
             }
         }
 
-        internal CreateDie(Func<IDie,int,bool> setDie)
+        internal CreateDie(Func<IDie, int, bool> setDie)
         {
             this.setDie = setDie;
         }

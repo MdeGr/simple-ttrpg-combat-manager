@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using simple_ttrpg_combat_manager.UI.Interfaces;
 
-namespace simple_ttrpg_combat_manager.UI
+namespace simple_ttrpg_combat_manager.UI.screens
 {
     internal class Exit : IUI
     {

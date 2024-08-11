@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using simple_ttrpg_combat_manager.UI.Interfaces;
 
-namespace simple_ttrpg_combat_manager.UI.Create.general
+namespace simple_ttrpg_combat_manager.UI.screens.Create.general
 {
     internal class ChangeNumber : IUI
     {
@@ -33,7 +33,7 @@ namespace simple_ttrpg_combat_manager.UI.Create.general
             }
         }
 
-        internal ChangeNumber(Func<int,bool> setNum)
+        internal ChangeNumber(Func<int, bool> setNum)
         {
             this.setNum = setNum;
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using simple_ttrpg_combat_manager.UI.Interfaces;
 using ttrpg_combat_engine.coreEngine.interfaces;
 
-namespace simple_ttrpg_combat_manager.UI
+namespace simple_ttrpg_combat_manager.UI.screens.activeCombat
 {
     internal class ActiveEncounter : IUI
     {

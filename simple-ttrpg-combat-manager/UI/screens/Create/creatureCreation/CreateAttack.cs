@@ -1,5 +1,5 @@
-﻿using simple_ttrpg_combat_manager.UI.Create.general;
-using simple_ttrpg_combat_manager.UI.Interfaces;
+﻿using simple_ttrpg_combat_manager.UI.Interfaces;
+using simple_ttrpg_combat_manager.UI.screens.Create.general;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ using ttrpg_combat_engine.coreEngine.interfaces;
 using ttrpg_combat_engine.utility.interfaces;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace simple_ttrpg_combat_manager.UI.Create.creatureCreation
+namespace simple_ttrpg_combat_manager.UI.screens.Create.creatureCreation
 {
     internal class CreateAttack : IUI
     {

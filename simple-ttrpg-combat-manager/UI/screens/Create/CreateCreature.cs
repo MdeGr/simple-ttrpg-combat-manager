@@ -1,6 +1,6 @@
-﻿using simple_ttrpg_combat_manager.UI.Create.creatureCreation;
-using simple_ttrpg_combat_manager.UI.Create.general;
-using simple_ttrpg_combat_manager.UI.Interfaces;
+﻿using simple_ttrpg_combat_manager.UI.Interfaces;
+using simple_ttrpg_combat_manager.UI.screens.Create.creatureCreation;
+using simple_ttrpg_combat_manager.UI.screens.Create.general;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ttrpg_combat_engine.coreEngine.interfaces;
 
-namespace simple_ttrpg_combat_manager.UI.Create
+namespace simple_ttrpg_combat_manager.UI.screens.Create
 {
     internal class CreateCreature : IUI
     {
@@ -94,7 +94,6 @@ namespace simple_ttrpg_combat_manager.UI.Create
                         {
                             ICreature creature = Factorys.internal_creature_factory.CreateCreature(name, stats, attacks);
                             creatures.Add(creature);
-
                             return null;
                         }
                     case 5: return null;
