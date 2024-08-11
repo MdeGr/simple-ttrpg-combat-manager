@@ -7,7 +7,7 @@ using ttrpg_combat_engine.utility.interfaces;
 
 namespace ttrpg_combat_engine.utility.dice.flatDice
 {
-    public class DieFactory
+    public class DieFactory : IDieFactory
     {
         private Random random;
 
@@ -16,7 +16,7 @@ namespace ttrpg_combat_engine.utility.dice.flatDice
             this.random = random;
         }
 
-        internal IDie CreateDie(int max, int min)
+        public IDie CreateDie(int max, int min)
         {
             if (max > min)
             {
@@ -24,7 +24,7 @@ namespace ttrpg_combat_engine.utility.dice.flatDice
             }
             else { throw new ArgumentException("Max bigger than min."); }
         }
-        internal IDie CreateDie(int max)
+        public IDie CreateDie(int max)
         {
             return new Die(max, 1, random);
         }

@@ -1,4 +1,7 @@
-﻿using simple_ttrpg_combat_manager.UI.creatureCreation;
+﻿using simple_ttrpg_combat_manager.UI.Create.creatureCreation;
+using simple_ttrpg_combat_manager.UI.Create.general;
+using simple_ttrpg_combat_manager.UI.creatureCreation;
+using simple_ttrpg_combat_manager.UI.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ttrpg_combat_engine.coreEngine.interfaces;
 
-namespace simple_ttrpg_combat_manager.UI
+namespace simple_ttrpg_combat_manager.UI.Create
 {
     internal class CreateCreature : IUI
     {
@@ -35,11 +38,11 @@ namespace simple_ttrpg_combat_manager.UI
             else
             {
                 screen = "Create creature\n\n" +
-                    $"name: {name}\n"+
+                    $"name: {name}\n" +
                     " Stats:\n";
                 foreach (IStat stat in stats)
                 {
-                    screen += stat.GetName()+"\n";
+                    screen += stat.GetName() + "\n";
                 }
 
                 screen += "\n Attacks:\n";
@@ -49,9 +52,9 @@ namespace simple_ttrpg_combat_manager.UI
                 }
 
                 screen += "\n1)Change name\n" +
-                    "2)Add stat\n"+
+                    "2)Add stat\n" +
                     "3)Add attack\n" +
-                    "4)Confirm\n"+
+                    "4)Confirm\n" +
                     "5)Back";
 
                 return screen;
@@ -80,17 +83,17 @@ namespace simple_ttrpg_combat_manager.UI
                         }
                     case 2:
                         {
-                            nestedUI = new CreateStat();
+                            nestedUI = new CreateStat(stats);
                             return this;
                         }
                     case 3:
                         {
-                            nestedUI = new CreateAttack();
+                            nestedUI = new CreateAttack(attacks);
                             return this;
                         }
                     case 4:
                         {
-                            ICreature creature = Factorys.internal_creature_factory.CreateCreature(name,stats,attacks);
+                            ICreature creature = Factorys.internal_creature_factory.CreateCreature(name, stats, attacks);
                             creatures.Add(creature);
 
                             return null;

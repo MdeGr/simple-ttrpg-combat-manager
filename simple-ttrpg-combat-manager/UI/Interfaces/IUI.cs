@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace simple_ttrpg_combat_manager.UI
+namespace simple_ttrpg_combat_manager.UI.Interfaces
 {
     internal interface IUI
     {

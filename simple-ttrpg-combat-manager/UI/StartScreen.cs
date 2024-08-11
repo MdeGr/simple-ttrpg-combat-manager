@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-
+using simple_ttrpg_combat_manager.UI.Interfaces;
 using ttrpg_combat_engine;
 
 namespace simple_ttrpg_combat_manager.UI

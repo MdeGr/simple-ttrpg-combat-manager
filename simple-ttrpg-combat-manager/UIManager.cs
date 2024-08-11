@@ -7,6 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using simple_ttrpg_combat_manager.UI;
+using simple_ttrpg_combat_manager.UI.Interfaces;
 
 namespace simple_ttrpg_combat_manager
 {
