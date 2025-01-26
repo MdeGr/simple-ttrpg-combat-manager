@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using simple_ttrpg_combat_manager.UI.Interfaces;
+using consoleFrontendFramework.interfaces;
 
 namespace simple_ttrpg_combat_manager.UI.screens.load
 {

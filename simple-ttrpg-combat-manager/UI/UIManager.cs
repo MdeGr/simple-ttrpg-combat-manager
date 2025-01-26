@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using simple_ttrpg_combat_manager.UI.Interfaces;
+using consoleFrontendFramework.interfaces;
 using simple_ttrpg_combat_manager.UI.screens;
 
 namespace simple_ttrpg_combat_manager.UI

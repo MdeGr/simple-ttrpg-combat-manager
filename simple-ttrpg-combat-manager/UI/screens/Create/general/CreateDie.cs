@@ -1,4 +1,4 @@
-﻿using simple_ttrpg_combat_manager.UI.Interfaces;
+﻿using consoleFrontendFramework.interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

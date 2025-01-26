@@ -12,4 +12,10 @@
     <ProjectReference Include="..\ttrpg-combat-engine\ttrpg-combat-engine.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="consoleFrontendFramework">
+      <HintPath>..\..\consoleFrontendFramework\consoleFrontendFramework\bin\Release\net8.0\consoleFrontendFramework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
