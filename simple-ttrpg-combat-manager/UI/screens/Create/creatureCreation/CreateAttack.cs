@@ -9,7 +9,6 @@ using ttrpg_combat_engine.coreEngine.attack;
 using ttrpg_combat_engine.coreEngine.creature;
 using ttrpg_combat_engine.coreEngine.interfaces;
 using ttrpg_combat_engine.utility.interfaces;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace simple_ttrpg_combat_manager.UI.screens.Create.creatureCreation
 {

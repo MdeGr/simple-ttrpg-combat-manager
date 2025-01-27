@@ -22,9 +22,9 @@ namespace simple_ttrpg_combat_manager.UI.screens.activeCombat
             throw new NotImplementedException();
         }
 
-        internal ActiveEncounter(IEncounter encounter)
+        internal ActiveEncounter(List<ICreature> creatures)
         {
-            this.encounter = encounter;
+            this.encounter = Factorys.internal_encounter_factory.CreateEncounter(creatures);
         }
     }
 }

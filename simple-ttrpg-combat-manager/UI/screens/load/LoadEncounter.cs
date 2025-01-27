@@ -25,7 +25,7 @@ namespace simple_ttrpg_combat_manager.UI.screens.load
                 int inputNum = int.Parse(input);
                 switch (inputNum)
                 {
-                    case 1: return new StartScreen();
+                    case 1: return new StartScreen("Simple combat manager\n" +" by: Merel de Graauw\n\n");
                     default:
                         {
                             screen += "\nError: input must be a number from the list";

@@ -4,18 +4,12 @@ using consoleFrontendFramework.interfaces;
 using consoleFrontendFramework.ActionPreset;
 using simple_ttrpg_combat_manager.UI.screens.Create;
 using simple_ttrpg_combat_manager.UI.screens.load;
+using simple_ttrpg_combat_manager.UI.screens;
 
 //initiolizing start screen
 string header = "Simple combat manager\n" +
             " by: Merel de Graauw\n\n";
-NavigatingUI startscreen = new NavigatingUI(header);
-
-IAction[] actions= [
-new NavigateTo("Create encounter",new CreateEncounter()),
-new NavigateTo("Load encounter", new LoadEncounter()),
-new ExitAction(startscreen)];
-
-startscreen.setActions(actions);
+StartScreen startscreen = new StartScreen(header);
 
 //initiolize UI manager
 UIManager uiManager = new UIManager(startscreen);

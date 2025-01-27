@@ -33,7 +33,7 @@ namespace simple_ttrpg_combat_manager.UI.screens
                             exit = true;
                             return this;
                         }
-                    case 2: return new StartScreen();
+                    case 2: return new StartScreen("Simple combat manager\n" +" by: Merel de Graauw\n\n");
                     default:
                         {
                             screen += "\nError: input must be a number from the list";
