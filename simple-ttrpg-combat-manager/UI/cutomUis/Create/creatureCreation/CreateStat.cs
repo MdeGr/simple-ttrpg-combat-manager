@@ -77,7 +77,7 @@ namespace simple_ttrpg_combat_manager.UI.screens.Create.creatureCreation
                 {
                     case 1:
                         {
-                            nestedUI = new ChangeName(SetName);
+                            nestedUI = new ChangeString("Enter stat name\n", SetName, this);
                             return this;
                         }
                     case 2:
